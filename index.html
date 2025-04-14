@@ -1,0 +1,201 @@
+!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shinobi no Ō - RP Naruto</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Kanit', sans-serif;
+      color: white;
+      background-color: #0d0d0d;
+    }
+
+    nav {
+      background-color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      background-color: #ff9900;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #cc7a00;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    #accueil {
+      background-image: url('images/konoha-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      position: relative;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 10px;
+    }
+
+    h1 {
+      font-size: 60px;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 30px;
+      margin-top: 40px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #ff9900;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    form input, form textarea {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    form button {
+      background-color: #ff9900;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    form button:hover {
+      background-color: #cc7a00;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#histoire">Histoire</a>
+    <a href="#whitelist">Whitelist</a>
+  </nav>
+
+  <section id="accueil">
+    <div class="overlay">
+      <h1>Shinobi no Ō</h1>
+      <p>Entrez dans l'univers shinobi, forgez votre destin et devenez une légende parmi les ombres de Konoha.</p>
+      <a href="#whitelist" class="btn">Rejoindre l'aventure</a>
+    </div>
+  </section>
+
+  <section id="histoire">
+    <h2>📖 L'Histoire de Shinobi no Ō</h2>
+    <p>
+      Bienvenue dans l'univers de <strong>Shinobi no Ō</strong>, un monde alternatif inspiré de Naruto, où les nations shinobi se relèvent d’une ère de conflits destructeurs. L’équilibre entre les grandes puissances est fragile, et chaque village tente de se reconstruire tout en gardant un œil méfiant sur ses voisins.
+    </p>
+    <p>
+      Les anciens héros sont tombés, les Bijû ont disparu, et une nouvelle génération de ninjas émerge dans un climat de tension et de mystère. Des rumeurs circulent sur l’existence d’un pouvoir oublié, capable de changer le cours de l’histoire.
+    </p>
+    <p>
+      Dans cet univers, vous incarnez un shinobi façonné par son passé, ses choix et ses ambitions. Allez-vous défendre votre village avec honneur, ou plonger dans l’ombre pour faire éclore vos propres plans ? Le monde est en constante évolution, influencé par les décisions de chaque joueur.
+    </p>
+    <p>
+      <em>Forgez votre voie. Protégez ou détruisez. Devenez le Ō.</em>
+    </p>
+  </section>
+
+  <section id="whitelist">
+    <h2>📥 Formulaire de Whitelist</h2>
+    <form id="whitelistForm">
+      <input type="text" placeholder="Pseudo Discord" required>
+      <input type="number" placeholder="Âge" required>
+      <input type="text" placeholder="Expérience RP" required>
+      <input type="text" placeholder="Disponibilités" required>
+      <textarea placeholder="Pourquoi nous rejoindre ?" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <script>
+    document.querySelector("#whitelistForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const pseudo = document.querySelector('input[placeholder="Pseudo Discord"]').value;
+      const age = document.querySelector('input[placeholder="Âge"]').value;
+      const experience = document.querySelector('input[placeholder="Expérience RP"]').value;
+      const dispos = document.querySelector('input[placeholder="Disponibilités"]').value;
+      const motivation = document.querySelector('textarea[placeholder="Pourquoi nous rejoindre ?"]').value;
+
+      const message = {
+        content: `📥 **Nouvelle demande de whitelist Shinobi no Ō** :\n**🧑 Pseudo Discord :** ${pseudo}\n**🎂 Âge :** ${age}\n**🎭 Expérience RP :** ${experience}\n**⏰ Disponibilités :** ${dispos}\n**💬 Motivation :** ${motivation}`
+      };
+
+      try {
+        await fetch("https://discord.com/api/webhooks/1361224524531634197/DiZA_9xfygGPPw1AFQd9RX0uUnqryLSaelDYguI7BAJ9aUMJEBMPD_NbAvNv3kvRzi2-", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(message)
+        });
+
+        alert("🎉 Demande envoyée avec succès !");
+        this.reset();
+      } catch (error) {
+        alert("❌ Erreur lors de l'envoi. Merci de réessayer plus tard.");
+        console.error("Erreur webhook :", error);
+      }
+    });
+  </script>
+
+</body>
+</html>
+
